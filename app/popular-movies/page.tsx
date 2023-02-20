@@ -1,7 +1,7 @@
 import Movie from "@/components/Movie";
 
 async function fetchPopularMovies() {
-	const baseTmdbUri = process.env.NEXT_PUBLIC_TMDB_BASE_URI;
+	const baseTmdbUri = process.env.TMDB_BASE_URI;
 	const popularMoviesUri = "movie/popular";
 	const url = `${baseTmdbUri}/${popularMoviesUri}?api_key=${process.env.TMDB_API_KEY}`;
 	const response = await fetch(url);
@@ -10,7 +10,6 @@ async function fetchPopularMovies() {
 
 export default async function Home() {
 	const popularMovies = await fetchPopularMovies();
-	// console.log(popularMovies);
 	return (
 		<div className="">
 			<div className="grid gap-16 grid-cols-fluid">

@@ -2,7 +2,7 @@ import Link from "next/link";
 import Image from "next/image";
 
 export default function Movie({id, title, releaseDate, posterPath}) {
-	const imageUri = process.env.NEXT_PUBLIC_TMDB_IMAGES_URI;
+	const imageUri = process.env.TMDB_IMAGES_URI;
 	return (
 		<div>
 			<h1>{title}</h1>

@@ -1,9 +1,12 @@
 import MovieDetails from "@/components/MovieDetails";
 
 async function fetchMovieDetails(id: string) {
-	const baseTmdbUri = process.env.NEXT_PUBLIC_TMDB_BASE_URI;
+	/*eslint-disable */
+	console.log({id});
+	const baseTmdbUri = process.env.TMDB_BASE_URI;
 	const movieDetailsUri = `movie/${id}`;
 	const url = `${baseTmdbUri}/${movieDetailsUri}?api_key=${process.env.TMDB_API_KEY}`;
+	console.log({url});
 	const response = await fetch(url);
 
 	return await response.json();
@@ -11,12 +14,14 @@ async function fetchMovieDetails(id: string) {
 export default async function Page({params}: {params: {id: string}}) {
 	const movieDetails = await fetchMovieDetails(params.id);
 	return (
-		<MovieDetails
-			title={movieDetails.title}
-			posterPath={movieDetails.poster_path}
-			releaseDate={movieDetails.release_date}
-			overview={movieDetails.overview}
-			genres={movieDetails.genres}
-		/>
+		<>
+			<MovieDetails
+				title={movieDetails.title}
+				posterPath={movieDetails.poster_path}
+				releaseDate={movieDetails.release_date}
+				overview={movieDetails.overview}
+				genres={movieDetails.genres}
+			/>
+		</>
 	);
 }
