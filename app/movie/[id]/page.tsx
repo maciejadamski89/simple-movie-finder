@@ -1,12 +1,9 @@
 import MovieDetails from "@/components/MovieDetails";
 
 async function fetchMovieDetails(id: string) {
-	/*eslint-disable */
-	console.log({id});
 	const baseTmdbUri = process.env.TMDB_BASE_URI;
 	const movieDetailsUri = `movie/${id}`;
 	const url = `${baseTmdbUri}/${movieDetailsUri}?api_key=${process.env.TMDB_API_KEY}`;
-	console.log({url});
 	const response = await fetch(url);
 
 	return await response.json();
