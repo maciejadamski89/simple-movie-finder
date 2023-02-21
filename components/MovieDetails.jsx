@@ -12,7 +12,7 @@ export default function MovieDetails({title, releaseDate, posterPath, overview, 
 			<p className="text-lg text-neutral-400">{overview}</p>
 			<Image src={`${imageUri + posterPath}`} alt="" width={400} height={400} />
 			<h2 className="text-md">Release date: {releaseDate}</h2>
-			<p className="text-md text-neutral-400">Genres: {genres?.map((genre) => genre.name).join(", ")} </p>
+			<p className="text-md text-neutral-400">Genres: {genres.map((genre) => genre.name).join(", ")} </p>
 		</div>
 	);
 }

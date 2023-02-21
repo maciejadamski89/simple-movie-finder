@@ -4,7 +4,7 @@ async function fetchMovieDetails(id: string) {
 	const baseTmdbUri = process.env.TMDB_BASE_URI;
 	const movieDetailsUri = `movie/${id}`;
 	const url = `${baseTmdbUri}/${movieDetailsUri}?api_key=${process.env.TMDB_API_KEY}`;
-	const response = await fetch(url);
+	const response = await fetch(url, {cache: "no-store"});
 
 	return await response.json();
 }
